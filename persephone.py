@@ -33,15 +33,17 @@ class PersephoneWindow(QWidget):
         
         
     def initUI(self):
-
+        
         initurl = 'https://www.google.co.jp'
-                
+
+        # setting browser
         self.browser = QWebEngineView()
         self.browser.load(QUrl(initurl))        
         self.browser.resize(1000,600)
         self.browser.move(200,200)
         self.browser.setWindowTitle(__program__)
 
+        # setting button
         self.back_button = QPushButton('back')
         self.back_button.clicked.connect(self.browser.back)        
         self.forward_button = QPushButton('forward')
@@ -50,12 +52,12 @@ class PersephoneWindow(QWidget):
         self.reload_button.clicked.connect(self.browser.reload)
         self.url_edit = QLineEdit()
         self.move_button = QPushButton('move')
-        print(self.url_edit.text())
-        # move_button.clicked.connect(browser.load(QUrl(url_edit.text())))
         self.move_button.clicked.connect(self.loadPage)
-        
+
+        # signal catch from moving web pages.
         self.browser.urlChanged.connect(self.updateCurrentUrl)
-        
+
+        # setting layout
         grid = QGridLayout()
         grid.setSpacing(10)
         grid.addWidget(self.back_button, 1, 0)
@@ -63,28 +65,32 @@ class PersephoneWindow(QWidget):
         grid.addWidget(self.reload_button, 1, 2)
         grid.addWidget(self.url_edit, 1, 3, 1, 10)
         grid.addWidget(self.move_button, 1, 14)
-
         grid.addWidget(self.browser,2, 0, 5, 15)
-
         self.setLayout(grid) 
-        
         self.resize(1200, 800)
         self.center()
         self.setWindowTitle(__program__)
         self.show()
 
+    
     def center(self):
+        ''' centering widget
+        '''
         qr = self.frameGeometry()
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
         
     def loadPage(self):
+        ''' move web page which is set at url_edit
+        '''
         move_url = QUrl(self.url_edit.text())
         self.browser.load(move_url)
         self.updateCurrentUrl
 
     def updateCurrentUrl(self):
+        ''' rewriting url_edit when you move different web page.
+        '''
         # current_url = self.browser.url().toString()
         self.url_edit.clear()
         self.url_edit.insert(self.browser.url().toString())
