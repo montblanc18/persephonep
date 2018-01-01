@@ -1,11 +1,8 @@
 # Persophone
-Persophone is a web browser based on Python and PyQt.
+Persophone is a web browser based on Python and PyQt5.
 
 # Install
-We will be able to install this browser in the near future.
-``` bash
-$ python setup.py install
-```
+Please ```git clone``` or download.
 
 # How to Use
 Type below and Persophone starts.
