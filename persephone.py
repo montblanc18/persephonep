@@ -1,18 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-"""
-ZetCode PyQt5 tutorial 
-
-In this example, we create a bit
-more complicated window layout using
-the QGridLayout manager. 
-
-author: Jan Bodnar
-website: zetcode.com 
-last edited: January 2015
-"""
-
 import sys
 import os
 from PyQt5.QtWidgets import (QWidget, QLabel, QLineEdit, 
