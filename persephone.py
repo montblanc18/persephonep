@@ -33,13 +33,18 @@ class PersephoneWindow(QWidget):
 
         # setting button
         self.back_button = QPushButton('back')
+        self.back_button.setToolTip('Go back to previous page.')
         self.back_button.clicked.connect(self.browser.back)        
         self.forward_button = QPushButton('forward')
+        self.forward_button.setToolTip('Go to the next page.')
         self.forward_button.clicked.connect(self.browser.forward)
         self.reload_button = QPushButton('reload')
+        self.reload_button.setToolTip('Reload this page.')
         self.reload_button.clicked.connect(self.browser.reload)
         self.url_edit = QLineEdit()
+        self.url_edit.setToolTip('URL box')
         self.move_button = QPushButton('move')
+        self.move_button.setToolTip('Move to the page set at URL box.')
         self.move_button.clicked.connect(self.loadPage)
 
         # signal catch from moving web pages.
