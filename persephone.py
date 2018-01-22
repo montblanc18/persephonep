@@ -46,6 +46,9 @@ class PersephoneWindow(QWidget):
         self.move_button = QPushButton('move')
         self.move_button.setToolTip('Move to the page set at URL box.')
         self.move_button.clicked.connect(self.loadPage)
+        self.home_button = QPushButton('home')
+        self.home_button.setToolTip('Move to the home page.')
+        self.home_button.clicked.connect(self.loadHomePage)
 
         # signal catch from moving web pages.
         self.browser.urlChanged.connect(self.updateCurrentUrl)
@@ -58,7 +61,8 @@ class PersephoneWindow(QWidget):
         grid.addWidget(self.reload_button, 1, 2)
         grid.addWidget(self.url_edit, 1, 3, 1, 10)
         grid.addWidget(self.move_button, 1, 14)
-        grid.addWidget(self.browser,2, 0, 5, 15)
+        grid.addWidget(self.home_button, 1, 15)
+        grid.addWidget(self.browser,2, 0, 5, 16)
         self.setLayout(grid) 
         self.resize(1200, 800)
         self.center()
@@ -87,7 +91,14 @@ class PersephoneWindow(QWidget):
         # current_url = self.browser.url().toString()
         self.url_edit.clear()
         self.url_edit.insert(self.browser.url().toString())
-    
+
+    def loadHomePage(self):
+        ''' move to the home page
+        '''
+        initurl = 'https://www.google.co.jp'
+        self.browser.load(QUrl(initurl))
+        
+        
 if __name__ == '__main__':
     # mainPyQt5()
     app = QApplication(sys.argv)
