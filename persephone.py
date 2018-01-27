@@ -16,7 +16,7 @@ class PersephoneWindow(QWidget):
     
     def __init__(self):
         super().__init__()
-        
+
         self.initUI()
         
         
@@ -24,23 +24,23 @@ class PersephoneWindow(QWidget):
         
         initurl = 'https://www.google.co.jp'
 
-        # setting browser
-        self.browser = QWebEngineView()
-        self.browser.load(QUrl(initurl))        
-        self.browser.resize(1000,600)
-        self.browser.move(200,200)
-        self.browser.setWindowTitle(__program__)
+        # setting window
+        self.window = QWebEngineView()
+        self.window.load(QUrl(initurl))        
+        self.window.resize(1000,600)
+        self.window.move(200,200)
+        self.window.setWindowTitle(__program__)
 
         # setting button
         self.back_button = QPushButton('back')
         self.back_button.setToolTip('Go back to previous page.')
-        self.back_button.clicked.connect(self.browser.back)        
+        self.back_button.clicked.connect(self.window.back)        
         self.forward_button = QPushButton('forward')
         self.forward_button.setToolTip('Go to the next page.')
-        self.forward_button.clicked.connect(self.browser.forward)
+        self.forward_button.clicked.connect(self.window.forward)
         self.reload_button = QPushButton('reload')
         self.reload_button.setToolTip('Reload this page.')
-        self.reload_button.clicked.connect(self.browser.reload)
+        self.reload_button.clicked.connect(self.window.reload)
         self.url_edit = QLineEdit()
         self.url_edit.setToolTip('URL box')
         self.move_button = QPushButton('move')
@@ -51,8 +51,8 @@ class PersephoneWindow(QWidget):
         self.home_button.clicked.connect(self.loadHomePage)
         
         # signal catch from moving web pages.
-        self.browser.urlChanged.connect(self.updateCurrentUrl)
-        self.browser.page().profile().downloadRequested.connect(self._downloadRequested)
+        self.window.urlChanged.connect(self.updateCurrentUrl)
+        self.window.page().profile().downloadRequested.connect(self._downloadRequested)
         
         # setting layout
         grid = QGridLayout()
@@ -63,7 +63,7 @@ class PersephoneWindow(QWidget):
         grid.addWidget(self.url_edit, 1, 3, 1, 10)
         grid.addWidget(self.move_button, 1, 14)
         grid.addWidget(self.home_button, 1, 15)
-        grid.addWidget(self.browser,2, 0, 5, 16)
+        grid.addWidget(self.window,2, 0, 5, 16)
         self.setLayout(grid) 
         self.resize(1200, 800)
         self.center()
@@ -83,21 +83,21 @@ class PersephoneWindow(QWidget):
         ''' move web page which is set at url_edit
         '''
         move_url = QUrl(self.url_edit.text())
-        self.browser.load(move_url)
+        self.window.load(move_url)
         self.updateCurrentUrl
 
     def updateCurrentUrl(self):
         ''' rewriting url_edit when you move different web page.
         '''
-        # current_url = self.browser.url().toString()
+        # current_url = self.window.url().toString()
         self.url_edit.clear()
-        self.url_edit.insert(self.browser.url().toString())
+        self.url_edit.insert(self.window.url().toString())
 
     def loadHomePage(self):
         ''' move to the home page
         '''
         initurl = 'https://www.google.co.jp'
-        self.browser.load(QUrl(initurl))
+        self.window.load(QUrl(initurl))
 
     def saveFile(self):
         print('download')
