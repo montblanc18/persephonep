@@ -14,13 +14,13 @@ __program__ = 'PERSEPHONE'
 
 class PersephoneWindow(QWidget):
     
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent = None):
+        super(PersephoneWindow, self).__init__()
+        self.initUI(parent = parent)
 
-        self.initUI()
         
         
-    def initUI(self):
+    def initUI(self, parent = None):
         
         initurl = 'https://www.google.co.jp'
 
@@ -65,11 +65,13 @@ class PersephoneWindow(QWidget):
         grid.addWidget(self.home_button, 1, 15)
         grid.addWidget(self.window,2, 0, 5, 16)
         self.setLayout(grid) 
-        self.resize(1200, 800)
-        self.center()
-        self.setWindowTitle(__program__)
-        self.show()
-
+        
+        if parent == None:
+            self.resize(1200, 800)
+            self.center()
+            self.setWindowTitle(__program__)
+            self.show()
+            
     
     def center(self):
         ''' centering widget
