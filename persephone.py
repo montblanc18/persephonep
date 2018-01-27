@@ -4,7 +4,7 @@
 
 import sys
 from PyQt5.QtWidgets import QWidget, QPushButton, QTabWidget, QApplication, QHBoxLayout, QVBoxLayout
-
+from PyQt5.QtGui import QIcon
 from func_persephone import *
 
 __program__ = 'PERSEPHONE'
