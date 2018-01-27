@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import (QWidget, QLabel, QLineEdit,
                              QTextEdit, QGridLayout, QApplication, QPushButton,  QDesktopWidget)
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QUrl
-from PyQt5.QtWebEngineWidgets import QWebEngineView
+from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEngineProfile, QWebEngineDownloadItem
 
 __program__ = 'PERSEPHONE'
 
@@ -49,10 +49,11 @@ class PersephoneWindow(QWidget):
         self.home_button = QPushButton('home')
         self.home_button.setToolTip('Move to the home page.')
         self.home_button.clicked.connect(self.loadHomePage)
-
+        
         # signal catch from moving web pages.
         self.browser.urlChanged.connect(self.updateCurrentUrl)
-
+        self.browser.page().profile().downloadRequested.connect(self._downloadRequested)
+        
         # setting layout
         grid = QGridLayout()
         grid.setSpacing(10)
@@ -97,6 +98,13 @@ class PersephoneWindow(QWidget):
         '''
         initurl = 'https://www.google.co.jp'
         self.browser.load(QUrl(initurl))
+
+    def saveFile(self):
+        print('download')
+
+    def _downloadRequested(self, item): # QWebEnginDownloadItem
+        # print('downloading to', item.path)
+        item.accept()
         
         
 if __name__ == '__main__':
