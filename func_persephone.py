@@ -84,7 +84,15 @@ class PersephoneWindow(QWidget):
     def loadPage(self):
         ''' move web page which is set at url_edit
         '''
-        move_url = QUrl(self.url_edit.text())
+        move_url = self.url_edit.text()
+        # check url
+        # If the head of move_url equals 'http://' or 'https://', query to google search form.
+        if not (move_url[0:8] == 'http://' or move_url[0:9] == 'https://'):
+            search_word = move_url.replace(' ', '+').replace('　', '+')
+            google_search_url = 'https://www.google.co.jp/search?ie=utf-8&oe=utf-8&q={}&hl=ja&btnG=search'.format(search_word)
+            move_url = google_search_url
+            
+        move_url = QUrl(move_url)    
         self.window.load(move_url)
         self.updateCurrentUrl
 
