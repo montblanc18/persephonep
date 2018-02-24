@@ -46,6 +46,7 @@ class PersephoneWindow(QWidget):
         self.move_button = QPushButton('move')
         self.move_button.setToolTip('Move to the page set at URL box.')
         self.move_button.clicked.connect(self.loadPage)
+        self.url_edit.returnPressed.connect(self.loadPage)
         self.home_button = QPushButton('home')
         self.home_button.setToolTip('Move to the home page.')
         self.home_button.clicked.connect(self.loadHomePage)
@@ -87,7 +88,7 @@ class PersephoneWindow(QWidget):
         move_url = self.url_edit.text()
         # check url
         # If the head of move_url equals 'http://' or 'https://', query to google search form.
-        if not (move_url[0:8] == 'http://' or move_url[0:9] == 'https://'):
+        if not (move_url[0:7] == 'http://' or move_url[0:8] == "https://" or move_url[0:8] == 'file:///' or move_url[0:6] == 'ftp://'):
             search_word = move_url.replace(' ', '+').replace('　', '+')
             google_search_url = 'https://www.google.co.jp/search?ie=utf-8&oe=utf-8&q={}&hl=ja&btnG=search'.format(search_word)
             move_url = google_search_url
