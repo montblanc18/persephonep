@@ -36,7 +36,7 @@ class mainUI(QWidget):
         self.center()
         self.setWindowTitle(__program__)
         self.show()
-
+        
     def _addTab(self):
         ''' add Tab
         '''
@@ -48,8 +48,8 @@ class mainUI(QWidget):
         when this is called, some tabs was deleted together.
         '''
         widget = self.qtab.widget(index)
-        if widget is not None:
-            widget.deleteLater()
+        #if widget is not None:
+        #    widget.deleteLater()
         self.qtab.removeTab(index)
 
     def center(self):
