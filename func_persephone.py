@@ -57,7 +57,7 @@ class PersephoneWindow(QWidget):
         
         # setting layout
         grid = QGridLayout()
-        grid.setSpacing(10)
+        grid.setSpacing(0)
         grid.addWidget(self.back_button, 1, 0)
         grid.addWidget(self.forward_button, 1, 1)
         grid.addWidget(self.reload_button, 1, 2)
