@@ -81,8 +81,8 @@ class PersephoneMainWidget(QMainWindow):
     def __init__(self):
         super().__init__()
         self.title = __program__
-        self.left = 0
-        self.top = 0
+        self.left = 100
+        self.top = 100
         self.width = 1200
         self.height = 800
         self.setWindowTitle(self.title)
