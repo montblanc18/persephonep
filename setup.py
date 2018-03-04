@@ -3,12 +3,12 @@
 from setuptools import setup
 from setuptools import find_packages
 
-__version__ = '1.1.0'
+__version__ = '1.2.0'
 
 setup(
     name = 'persophone',
     version = __version__,
-    description = 'Web Browser developed by Python',
+    description = 'Web Browser developed by Python and PyQt5',
     long_description = '''
     Some people are limited with their Web Browser.
     The faster we browse web pages, the more efficient we correct the information.
