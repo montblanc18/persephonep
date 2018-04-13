@@ -5,10 +5,10 @@
 import sys
 from PyQt5.QtWidgets import QMainWindow, QWidget, QPushButton, QTabWidget, QApplication, QHBoxLayout, QVBoxLayout, QLabel, QGridLayout
 from PyQt5.QtGui import QIcon
-from func_persephone import *
+from func_persephonep import *
 from PyQt5.QtCore import pyqtSlot
 
-__program__ = 'PERSEPHONE'
+__program__ = 'PERSEPHONEP'
 
 
 class mainUI(QWidget):
