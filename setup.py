@@ -14,7 +14,7 @@ setup(
     The faster we browse web pages, the more efficient we correct the information.
     ''',
     author = 'Shin Kurita',
-    url = 'https://github.com/montblanc18',
+    url = 'https://github.com/montblanc18/persephonep',
     license = 'MIT',
     install_package_data = True,
     package_dir = {'input':'input',},
