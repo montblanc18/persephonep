@@ -6,7 +6,7 @@ from setuptools import find_packages
 __version__ = '1.2.0'
 
 setup(
-    name = 'persephone',
+    name = 'persephonep',
     version = __version__,
     description = 'Web Browser developed by Python and PyQt5',
     long_description = '''
