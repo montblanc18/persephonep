@@ -49,6 +49,8 @@ class PersephoneTableWidget(QWidget):
         self.add_button.clicked.connect(self._addTab)
         self.app_info = QLabel('PERSEPHONE is developed by @montblanc18. This is a Web Browser based on Python 3 and PyQt5.')
 
+        # define the delete tab process
+        self.tabs.tabCloseRequested.connect(self.closeTab)
         
         # Create first tab
         self.tabs.setTabsClosable(True);
@@ -67,15 +69,12 @@ class PersephoneTableWidget(QWidget):
         '''
         self.tab.append(PersephoneWindow(parent = self))
         self.tabs.addTab(self.tab[index-1], '')
-        self.tabs.tabCloseRequested.connect(self.closeTab)
 
     def closeTab(self, index):
         ''' close Tab. This function has some problem.
         when this is called, some tabs was deleted together.
         '''
         widget = self.tabs.widget(index)
-        #if widget is not None:
-        #    widget.deleteLater()
         self.tabs.removeTab(index)
         
     def center(self):
@@ -93,9 +92,6 @@ class PersephoneTableWidget(QWidget):
         print("\n")
         for currentQTableWidgetItem in self.tableWidget.selectedItems():
             print(currentQTableWidgetItem.row(), currentQTableWidgetItem.column(), currentQTableWidgetItem.text())
-
-        
-        
 
     
 if __name__ == '__main__':
