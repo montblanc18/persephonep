@@ -71,8 +71,7 @@ class PersephoneTableWidget(QWidget):
         self.tabs.addTab(self.tab[index-1], '')
 
     def closeTab(self, index):
-        ''' close Tab. This function has some problem.
-        when this is called, some tabs was deleted together.
+        ''' close Tab. 
         '''
         widget = self.tabs.widget(index)
         self.tabs.removeTab(index)
