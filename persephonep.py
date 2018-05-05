@@ -26,6 +26,7 @@ class PersephoneMainWidget(QMainWindow):
 
         self.show()
 
+        
 class PersephoneTableWidget(QWidget):
 
     def __init__(self, parent):
@@ -37,24 +38,24 @@ class PersephoneTableWidget(QWidget):
         self.tabs = QTabWidget()
         # self.tab1 = QWidget()
         # self.tab2 = QWidget()
-        self.tab = []
+        self.tab = [] # Store the PersephoneWindow Class
         self.tabs.resize(1200, 800)
 
         # Add Tabs
-        self._addTab(0)
+        self._addTab(len(self.tab)) # len(self.tab) => 0
         # self.tabs.addTab(self.tab1, 'Tab 1')
         # self.tabs.addTab(self.tab2, 'Tab 2')
         self.add_button = QPushButton('+')
         self.add_button.setStyleSheet('background-color:gray')
-        self.add_button.clicked.connect(self._addTab)
+        self.add_button.clicked.connect(lambda: self._addTab(len(self.tab))) # add tab to last of index
         self.app_info = QLabel('PERSEPHONE is a Web Browser based on Python 3 and PyQt5, developed by @montblanc18.')
 
         # define the delete tab process
+        self.tabs.setTabsClosable(True)
         self.tabs.tabCloseRequested.connect(self.closeTab)
         
 
         #
-        self.tabs.setTabsClosable(True)
         self.tabs.setUsesScrollButtons(True)
         ########## Create first tab
         #self.tab[0].layout = QVBoxLayout(self)
@@ -71,14 +72,27 @@ class PersephoneTableWidget(QWidget):
     def _addTab(self, index):
         ''' add Tab
         '''
+        # print(index)
         self.tab.append(PersephoneWindow(parent = self))
-        self.tabs.addTab(self.tab[index-1], '')
-
+        self.tabs.addTab(self.tab[-1], '') # do not match tab index & tab num
+        self.tabs.setTabText(index, 'PlainPage')
+        # self.tab[-1].window.titleChanged.connect(lambda: self.tabs.setTabText(self.tabs.currentIndex(), self.tab[self.tabs.currentIndex()].window.title())) # this is too long. So, replace this sentence with below code.
+        self.tab[-1].window.titleChanged.connect(self.updateTabName)
+        # self.tab[index-1].window.urlChanged.connect(lambda: self.tabs.setTabText(index, self.tab[index-1].window.title())) # too fast to get page title
+        # print('addTab', index, self.tabs.currentIndex())
+        
     def closeTab(self, index):
         ''' close Tab. 
         '''
+        print(index)
         widget = self.tabs.widget(index)
+        self.tab.pop(index)
         self.tabs.removeTab(index)
+
+    def updateTabName(self):
+        ''' re-set tab name
+        '''
+        self.tabs.setTabText(self.tabs.currentIndex(), self.tab[self.tabs.currentIndex()].window.title())
         
     def center(self):
         ''' centering widget
