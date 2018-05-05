@@ -20,11 +20,11 @@ class PersephoneWindow(QWidget):
         self.initUI(parent = parent)
 
         
-        
     def initUI(self, parent = None):
-        
-        initurl = 'https://www.google.co.jp'
 
+        # config
+        initurl = 'https://www.google.co.jp'
+        
         # setting window
         self.window = QWebEngineView()
         self.window.load(QUrl(initurl))        
@@ -99,7 +99,7 @@ class PersephoneWindow(QWidget):
             move_url = google_search_url
         move_url = QUrl(move_url)    
         self.window.load(move_url)
-        self.updateCurrentUrl
+        self.updateCurrentUrl()
         
 
     def check_url_protocol(self, move_url):
@@ -124,7 +124,8 @@ class PersephoneWindow(QWidget):
         # current_url = self.window.url().toString()
         self.url_edit.clear()
         self.url_edit.insert(self.window.url().toString())
-
+        
+    
     def loadHomePage(self):
         ''' move to the home page
         '''
