@@ -52,8 +52,11 @@ class PersephoneTableWidget(QWidget):
         # define the delete tab process
         self.tabs.tabCloseRequested.connect(self.closeTab)
         
-        # Create first tab
-        self.tabs.setTabsClosable(True);
+
+        #
+        self.tabs.setTabsClosable(True)
+        self.tabs.setUsesScrollButtons(True)
+        ########## Create first tab
         #self.tab[0].layout = QVBoxLayout(self)
         #self.pushButton1 = QPushButton('PyQt5 button')
         #self.tab[0].layout.addWidget(self.pushButton1)
