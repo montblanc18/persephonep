@@ -3,6 +3,7 @@
 
 import sys
 import os
+import re
 from PyQt5.QtWidgets import (QWidget, QLabel, QLineEdit, 
                              QTextEdit, QGridLayout, QApplication, QPushButton,  QDesktopWidget)
 from PyQt5.QtGui import QIcon
@@ -88,14 +89,18 @@ class PersephoneWindow(QWidget):
         move_url = self.url_edit.text()
         # check url
         # If the head of move_url equals 'http://' or 'https://', query to google search form.
-        if not self.check_url_protocol(move_url):
+        # If the head of move_url doed not include above protocol but the style of *.*.*.*, add http:// to its_head
+        if self.check_url_protocol_ipv4(move_url):
+            move_url = 'http://' + move_url
+        elif not self.check_url_protocol(move_url):
             search_word = move_url.replace(' ', '+').replace('　', '+')
             google_search_url = 'https://www.google.co.jp/search?ie=utf-8&oe=utf-8&q={}&hl=ja&btnG=search'.format(search_word)
             move_url = google_search_url
-            
+        
         move_url = QUrl(move_url)    
         self.window.load(move_url)
         self.updateCurrentUrl
+        
 
     def check_url_protocol(self, move_url):
         if (move_url[0:7] == 'http://' or
@@ -105,7 +110,14 @@ class PersephoneWindow(QWidget):
             return True
         else:
             return False
+        
 
+    def check_url_protocol_ipv4(self, move_url):
+        ''' return True if move_url is IPv4 using Regular expression
+        '''
+        return re.match('(([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])', move_url)
+        
+    
     def updateCurrentUrl(self):
         ''' rewriting url_edit when you move different web page.
         '''
