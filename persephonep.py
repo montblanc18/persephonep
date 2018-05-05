@@ -47,21 +47,22 @@ class PersephoneTableWidget(QWidget):
         self.add_button = QPushButton('+')
         self.add_button.setStyleSheet('background-color:gray')
         self.add_button.clicked.connect(self._addTab)
-        self.app_info = QLabel('PERSEPHONE is developed by @montblanc18. This is a Web Browser based on Python 3 and PyQt5.')
+        self.app_info = QLabel('PERSEPHONE is a Web Browser based on Python 3 and PyQt5, developed by @montblanc18.')
 
         # define the delete tab process
         self.tabs.tabCloseRequested.connect(self.closeTab)
         
         # Create first tab
         self.tabs.setTabsClosable(True);
-        self.tab[0].layout = QVBoxLayout(self)
-        self.pushButton1 = QPushButton('PyQt5 button')
-        self.tab[0].layout.addWidget(self.pushButton1)
-        self.tab[0].setLayout(self.tab[0].layout)
+        #self.tab[0].layout = QVBoxLayout(self)
+        #self.pushButton1 = QPushButton('PyQt5 button')
+        #self.tab[0].layout.addWidget(self.pushButton1)
+        #self.tab[0].setLayout(self.tab[0].layout)
 
         # Add tabs to widget
         self.layout.addWidget(self.add_button)
         self.layout.addWidget(self.tabs)
+        self.layout.addWidget(self.app_info)
         self.setLayout(self.layout)
 
     def _addTab(self, index):
