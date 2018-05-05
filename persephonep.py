@@ -48,7 +48,7 @@ class PersephoneTableWidget(QWidget):
         self.add_button = QPushButton('+')
         self.add_button.setStyleSheet('background-color:gray')
         self.add_button.clicked.connect(lambda: self._addTab(len(self.tab))) # add tab to last of index
-        self.app_info = QLabel('PERSEPHONE is a Web Browser based on Python 3 and PyQt5, developed by @montblanc18.')
+        self.app_info = QLabel('%s is a Web Browser based on Python 3 and PyQt5, developed by @montblanc18.' % __program__)
 
         # define the delete tab process
         self.tabs.setTabsClosable(True)
@@ -75,7 +75,7 @@ class PersephoneTableWidget(QWidget):
         # print(index)
         self.tab.append(PersephoneWindow(parent = self))
         self.tabs.addTab(self.tab[-1], '') # do not match tab index & tab num
-        self.tabs.setTabText(index, 'PlainPage')
+        self.tabs.setTabText(index, 'VanilaPage')
         # self.tab[-1].window.titleChanged.connect(lambda: self.tabs.setTabText(self.tabs.currentIndex(), self.tab[self.tabs.currentIndex()].window.title())) # this is too long. So, replace this sentence with below code.
         self.tab[-1].window.titleChanged.connect(self.updateTabName)
         # self.tab[index-1].window.urlChanged.connect(lambda: self.tabs.setTabText(index, self.tab[index-1].window.title())) # too fast to get page title
