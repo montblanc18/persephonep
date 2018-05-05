@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import (QWidget, QLabel, QLineEdit,
                              QTextEdit, QGridLayout, QApplication, QPushButton,  QDesktopWidget)
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QUrl
-from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEngineProfile, QWebEngineDownloadItem
+from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEngineProfile, QWebEngineDownloadItem, QWebEnginePage
 
 __program__ = 'PERSEPHONE'
 
@@ -17,6 +17,7 @@ class PersephoneWindow(QWidget):
     
     def __init__(self, parent = None):
         super(PersephoneWindow, self).__init__()
+
         self.initUI(parent = parent)
 
         
@@ -27,6 +28,22 @@ class PersephoneWindow(QWidget):
         
         # setting window
         self.window = QWebEngineView()
+
+        # disguise
+        '''
+        profile = QWebEngineProfile()
+        profile.setHttpUserAgent('IE')
+        page = QWebEnginePage(profile)
+        self.window.setPage(page)
+        print(
+            # Set user agent "{}"
+            .format(
+                self.window.page().profile().httpUserAgent()
+            )
+        )
+        '''
+
+        # condig url
         self.window.load(QUrl(initurl))        
         self.window.resize(1000,600)
         self.window.move(200,200)
