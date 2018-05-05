@@ -118,6 +118,10 @@ if __name__ == '__main__':
     path = os.path.join(os.path.dirname(sys.modules[__name__].__file__), 'icon_persephone.png')
     app.setWindowIcon(QIcon(path))
 
+
+    # app.setApplicationName('IE')
+    # app.setApplicationVersion('1.0')
+    
     
     ui = PersephoneMainWidget()
     sys.exit(app.exec_())
