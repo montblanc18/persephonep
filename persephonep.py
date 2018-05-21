@@ -84,7 +84,7 @@ class PersephoneTableWidget(QWidget):
     def closeTab(self, index):
         ''' close Tab. 
         '''
-        print(index)
+        # print(index)
         widget = self.tabs.widget(index)
         self.tab.pop(index)
         self.tabs.removeTab(index)
