@@ -10,7 +10,10 @@ from PyQt5.QtCore import pyqtSlot
 
 __program__ = 'PERSEPHONEP'
 
-class PersephoneMainWidget(QMainWindow):
+''' This is a main window of the browser.
+    This class includes PersephonepMainWidget.
+'''
+class PersephonepMainWidget(QMainWindow):
 
     def __init__(self):
         super().__init__()
@@ -21,13 +24,17 @@ class PersephoneMainWidget(QMainWindow):
         self.height = 800
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
-        self.table_widget = PersephoneTableWidget(self)
+        self.table_widget = PersephonepTableWidget(self)
         self.setCentralWidget(self.table_widget)
 
         self.show()
 
-        
-class PersephoneTableWidget(QWidget):
+
+''' This is a Tab Handle Class for this browser.
+    This class is called by PersephonepMainWindow,
+    and it has some PersephonepWindos.
+'''
+class PersephonepTableWidget(QWidget):
 
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
@@ -38,7 +45,7 @@ class PersephoneTableWidget(QWidget):
         self.tabs = QTabWidget()
         # self.tab1 = QWidget()
         # self.tab2 = QWidget()
-        self.tab = [] # Store the PersephoneWindow Class
+        self.tab = [] # Store the PersephonepWindow Class
         self.tabs.resize(1200, 800)
 
         # Add Tabs
@@ -73,7 +80,7 @@ class PersephoneTableWidget(QWidget):
         ''' add Tab
         '''
         # print(index)
-        self.tab.append(PersephoneWindow(parent = self))
+        self.tab.append(PersephonepWindow(parent = self))
         self.tabs.addTab(self.tab[-1], '') # do not match tab index & tab num
         self.tabs.setTabText(index, 'VanilaPage')
         # self.tab[-1].window.titleChanged.connect(lambda: self.tabs.setTabText(self.tabs.currentIndex(), self.tab[self.tabs.currentIndex()].window.title())) # this is too long. So, replace this sentence with below code.
@@ -123,5 +130,5 @@ if __name__ == '__main__':
     # app.setApplicationVersion('1.0')
     
     
-    ui = PersephoneMainWidget()
+    ui = PersephonepMainWidget()
     sys.exit(app.exec_())
