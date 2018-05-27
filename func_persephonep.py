@@ -10,13 +10,19 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QUrl
 from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEngineProfile, QWebEngineDownloadItem, QWebEnginePage
 
-__program__ = 'PERSEPHONE'
+__program__ = 'PERSEPHONEP'
 
 
-class PersephoneWindow(QWidget):
+''' This is a single page of the browser.
+    This class equals a tab of PersephonepTableWidget.
+    This class can run only this python script, however,
+    that is not recomended.
+    (This ability might be deleted in the near future.)
+'''
+class PersephonepWindow(QWidget):
     
     def __init__(self, parent = None):
-        super(PersephoneWindow, self).__init__()
+        super(PersephonepWindow, self).__init__()
 
         self.initUI(parent = parent)
 
@@ -165,7 +171,7 @@ if __name__ == '__main__':
     path = os.path.join(os.path.dirname(sys.modules[__name__].__file__), 'icon_persephone.png')
     app.setWindowIcon(QIcon(path))
 
-    ex = PersephoneWindow()
+    ex = PersephonepWindow()
     sys.exit(app.exec_())
             
     
