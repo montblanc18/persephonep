@@ -20,6 +20,6 @@ setup(
     package_dir = {'input':'input',},
     packages = find_packages(exclude = ('tests', 'docs')),
     package_data = {'input':['input'],},
-    install_requires = ['PyQt5'],
+    install_requires = ['PyQt5', 'pytest-qt'],
     test_suite = 'tests'
 )
