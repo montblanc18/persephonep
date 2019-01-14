@@ -4,7 +4,22 @@
 
 import unittest
 from persephonep import *
+import PyQt5.QtCore
 
+
+def test_perseponep(qtbot):
+    app = QApplication(sys.argv)
+
+    # setWindowIcon is a method for QApplication, not for QWidget
+    path = os.path.join(os.path.dirname(sys.modules[__name__].__file__), 'icon_persephone.png')
+    app.setWindowIcon(QIcon(path))
+
+    ui = PersephonepMainWidget()
+
+    qtbot.addWidget(ui)
+    qtbot.mouseClick(ui.table_widget.add_button, PyQt5.QtCore.Qt.LeftButton)
+
+'''
 class TestPersephonep(unittest.TestCase):
 
     def setUp(self):
@@ -25,3 +40,4 @@ class TestPersephonep(unittest.TestCase):
         self.ui.closeTab(1)
 
         # We must write destracter?
+'''
