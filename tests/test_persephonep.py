@@ -18,6 +18,7 @@ def test_perseponep(qtbot):
 
     qtbot.addWidget(ui)
     qtbot.mouseClick(ui.table_widget.add_button, PyQt5.QtCore.Qt.LeftButton)
+    assert ui.table_widget.add_button.text() == '+'
 
 '''
 class TestPersephonep(unittest.TestCase):
