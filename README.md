@@ -10,7 +10,7 @@ Utilizing the characteristics of Qt as cross-platform framework, PersephoneP is 
 Please use ```git clone``` , ```pip install persephonep```, or download from this page.
 
 # How to Use
-Type below and Persophone starts.
+Type below and Persophonep starts.
 
 ``` bash
 $ python persephonep.py
