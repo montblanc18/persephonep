@@ -5,8 +5,9 @@ import sys
 import os
 import re
 from PyQt5.QtWidgets import (QWidget, QLineEdit,
-                             QGridLayout,
+                             QGridLayout, QLabel, QDialog,
                              # QLabel, QTextEdit,
+                             QHBoxLayout,
                              QApplication, QPushButton, QDesktopWidget)
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QUrl
@@ -26,6 +27,28 @@ __program__ = 'PERSEPHONEP'
     (This ability might be deleted in the near future.)
 '''
 
+'''
+class DownloadWindow(QWidget):
+
+    def __init__(self, item, parent=None):
+        # こいつがサブウィンドウの実体？的な。ダイアログ
+        self.w = QDialog(parent)
+        self.label = QLabel()
+        swelf.item = item
+        self.label.setText('Downloading {}'.format(self.item.path()))
+        layout = QHBoxLayout()
+        layout.addWidget(self.label)
+        self.item.accept()
+        self.item.finished.connect(self.finsh_download)
+        self.w.setLayout(layout)
+
+    def show(self):
+        self.w.exec_()
+
+    def finish_download(self):
+        self.label.setText('Finish to download {}'.format(self.item.path()))
+        print('finish')
+'''
 
 class PersephonepWindow(QWidget):
 
@@ -171,7 +194,10 @@ class PersephonepWindow(QWidget):
     def _downloadRequested(self, item):  # QWebEngineDownloadItem
         # print('downloading to', item.path)
         item.accept()
-
+        '''
+        dw = DownloadWindow(item)
+        dw.show()
+        '''
 
 if __name__ == '__main__':
     # mainPyQt5()
