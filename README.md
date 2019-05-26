@@ -52,3 +52,27 @@ Some people say that making browser is reinventing the wheel,
 This program's original name was "persephone",
  however, there were a lot f program which have same name.
 ![Window of Persephone](https://github.com/montblanc18/persephonep/blob/master/img/window_of_persephonep.png "Window_of_Persephone")
+
+## Constitution of PersephoneP
+
+This browser is consisted by 3 items.
+
+- PersephonepMainWidget (```QMainWindow```)
+- PersephonepTableWidget(```QWidget```)
+- PersephonepWindow(```QWidget```)
+
+### PersephonepMainWindow(```QMainWindow```)
+
+This item is a main frame of Persephonep.
+The role of this item is very simple.
+
+- Handling the initial parameters of this browser, such as position, size, and so on.
+- Call PersephonepTableWidget and display it in own frame.
+
+### PersephonepTableWIdget(```QWidget```)
+
+This item control the tab system of this browser. It handles the standard functions of tab, such as adding tabs, closing tabs, and so on.
+
+### PersephonepWindows(```QWidget```)
+
+This item is a main viewer of this browser.
