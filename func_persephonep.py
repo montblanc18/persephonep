@@ -27,19 +27,19 @@ __program__ = 'PERSEPHONEP'
     (This ability might be deleted in the near future.)
 '''
 
-'''
 class DownloadWindow(QWidget):
 
     def __init__(self, item, parent=None):
         # こいつがサブウィンドウの実体？的な。ダイアログ
+        super(DownloadWindow, self).__init__()
         self.w = QDialog(parent)
         self.label = QLabel()
-        swelf.item = item
+        self.item = item
         self.label.setText('Downloading {}'.format(self.item.path()))
         layout = QHBoxLayout()
         layout.addWidget(self.label)
         self.item.accept()
-        self.item.finished.connect(self.finsh_download)
+        self.item.finished.connect(self.finish_download)
         self.w.setLayout(layout)
 
     def show(self):
@@ -48,7 +48,7 @@ class DownloadWindow(QWidget):
     def finish_download(self):
         self.label.setText('Finish to download {}'.format(self.item.path()))
         print('finish')
-'''
+
 
 class PersephonepWindow(QWidget):
 
@@ -194,10 +194,10 @@ class PersephonepWindow(QWidget):
     def _downloadRequested(self, item):  # QWebEngineDownloadItem
         # print('downloading to', item.path)
         item.accept()
-        '''
+        
         dw = DownloadWindow(item)
         dw.show()
-        '''
+        
 
 if __name__ == '__main__':
     # mainPyQt5()
