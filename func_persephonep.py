@@ -39,7 +39,11 @@ class DownloadWindow(QWidget):
         layout = QHBoxLayout()
         layout.addWidget(self.label)
         self.item.accept()
+        print(self.item.totalBytes())
         self.item.finished.connect(self.finish_download)
+        ''' 
+        item = QWebEngineDownloadItem has 4 Signals, downloadProgress, finished, isPausedChanged, stateChanged.
+        '''
         self.w.setLayout(layout)
 
     def show(self):
