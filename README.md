@@ -1,7 +1,7 @@
 
 # PersephoneP
 
-PersephoneP is a web browser written by Python3 and PyQt5.
+PersephoneP is a web browser written by Python3 and [PyQt5](https://www.riverbankcomputing.com/static/Docs/PyQt5/).
 This browser is based on Chromium,
  which is an open source web browser engine included in PyQt5.
 The data from web pages gotten by Chromium is drawn on PyQt Widgets.
