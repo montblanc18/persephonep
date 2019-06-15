@@ -6,16 +6,11 @@ import os
 import re
 from PyQt5.QtWidgets import (QWidget, QLineEdit,
                              QGridLayout, QLabel, QDialog,
-                             # QLabel, QTextEdit,
                              QHBoxLayout,
                              QApplication, QPushButton, QDesktopWidget)
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QUrl
-from PyQt5.QtWebEngineWidgets import (QWebEngineView,
-                                      # QWebEngineProfile,
-                                      # QWebEngineDownloadItem,
-                                      # QWebEnginePage
-                                      )
+from PyQt5.QtWebEngineWidgets import QWebEngineView
 
 __program__ = 'PERSEPHONEP'
 

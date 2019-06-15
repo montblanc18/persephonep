@@ -44,8 +44,17 @@ Some people say that making browser is reinventing the wheel,
  however, there are two reasons.
 
 1. Understanding the way to get data from web page and to draw it on our PC.
-1. Some workers, including me, are forced to use the IE at work. BUT,
+1. Some workers are forced to use the IE at work. BUT,
  we wanna use other than IE!!
+
+### History of Development
+
+1. I got a job with a japanese company.
+1. This company prohibited my using browsers except IE.
+1. I decided to develop my browser.
+1. That company forced me to submit applications before installing software or libraries which I want.
+1. PyQt5 based on only sip module and sip run with PurePython.
+1. I decided to use PyQt5.
 
 ## Notice
 
