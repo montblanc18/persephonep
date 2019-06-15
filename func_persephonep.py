@@ -12,8 +12,8 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QUrl
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 
-__program__ = 'PERSEPHONEP'
 
+__program__ = 'PERSEPHONEP'
 
 ''' This is a single page of the browser.
     This class equals a tab of PersephonepTableWidget.
@@ -21,6 +21,10 @@ __program__ = 'PERSEPHONEP'
     that is not recomended.
     (This ability might be deleted in the near future.)
 '''
+
+
+def program_name():
+    return __program__
 
 class DownloadWindow(QWidget):
 
@@ -82,7 +86,7 @@ class PersephonepWindow(QWidget):
         self.window.load(QUrl(initurl))
         self.window.resize(1000, 600)
         self.window.move(200, 200)
-        self.window.setWindowTitle(__program__)
+        self.window.setWindowTitle(program_name())
 
         # setting button
         self.back_button = QPushButton('back')
@@ -124,7 +128,7 @@ class PersephonepWindow(QWidget):
         if parent is None:
             self.resize(1200, 800)
             self.center()
-            self.setWindowTitle(__program__)
+            self.setWindowTitle(program_name())
             self.show()
 
     def center(self):
