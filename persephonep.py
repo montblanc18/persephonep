@@ -29,6 +29,8 @@ def persephonep_parser():
 
 def create_main_window():
     main_window = PersephonepMainWindow()
+    available_geometry = app.desktop().availableGeometry(main_window)
+    main_window.resize(available_geometry.width() * 3 / 4, available_geometry.height() * 3 / 4)
     main_window.show()
     return main_window
 
@@ -40,12 +42,14 @@ class PersephonepMainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.title = program_name()
+        '''
         self.left = 100
         self.top = 100
         self.width = 1200
         self.height = 800
-        self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
+        '''
+        self.setWindowTitle(self.title)
         self.table_widget = PersephonepTableWidget(self)
         self.setCentralWidget(self.table_widget)
 
@@ -70,7 +74,7 @@ if __name__ == '__main__':
     
     ''' Show Windows
     '''
-    main_window = create_main_window()
+    main_win = create_main_window()
     
     ''' ToDo: Open URLs which you set by args
     '''
