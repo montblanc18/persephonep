@@ -40,9 +40,7 @@ class DownloadWindow(QWidget):
         self.item.accept()
         print(self.item.totalBytes())
         self.item.finished.connect(self.finish_download)
-        ''' 
-        item = QWebEngineDownloadItem has 4 Signals, downloadProgress, finished, isPausedChanged, stateChanged.
-        '''
+        # item = QWebEngineDownloadItem has 4 Signals, downloadProgress, finished, isPausedChanged, stateChanged.
         self.w.setLayout(layout)
 
     def show(self):
@@ -69,18 +67,16 @@ class PersephonepWindow(QWidget):
         self.window = QWebEngineView()
 
         # disguise
-        '''
-        profile = QWebEngineProfile()
-        profile.setHttpUserAgent('IE')
-        page = QWebEnginePage(profile)
-        self.window.setPage(page)
-        print(
-            # Set user agent "{}"
-            .format(
-                self.window.page().profile().httpUserAgent()
-            )
-        )
-        '''
+        # profile = QWebEngineProfile()
+        # profile.setHttpUserAgent('IE')
+        # page = QWebEnginePage(profile)
+        # self.window.setPage(page)
+        # print(
+        #    # Set user agent "{}"
+        #   .format(
+        #        self.window.page().profile().httpUserAgent()
+        #    )
+        #)
 
         # condig url
         self.window.load(QUrl(initurl))
@@ -141,14 +137,12 @@ class PersephonepWindow(QWidget):
 
     def loadPage(self):
         ''' move web page which is set at url_edit
-        '''
-        move_url = self.url_edit.text()
-        '''check url
         If the head of move_url equals 'http://' or 'https://',
-         query to google search form.
+        query to google search form.
         If the head of move_url doed not include above protocol,
          but the style of *.*.*.*, add http:// to its_head
         '''
+        move_url = self.url_edit.text()
         if self.check_url_protocol_ipv4(move_url):
             move_url = 'http://' + move_url
         elif not self.check_url_protocol(move_url):

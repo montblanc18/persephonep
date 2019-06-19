@@ -7,13 +7,13 @@ import os
 import argparse
 from PyQt5.QtWidgets import (QMainWindow, QWidget, QPushButton,
                              QTabWidget, QApplication,
-                             QVBoxLayout, QLabel, QDesktopWidget)
+                             QVBoxLayout, QLabel, QDesktopWidget, QStatusBar)
 from PyQt5.QtGui import QIcon
 
 ''' original files
 '''
 from func_persephonep import program_name
-from tab_controller import PersephonepTableWidget
+from tab_controller import PersephonepTabWidget
 
 
 ''' functions
@@ -23,9 +23,10 @@ def persephonep_parser():
     parser.add_argument('--debug', action = 'store_true',help='Show debug messages.')
     parser.add_argument('-u', '--url', type = str, default = 'http://www.google.com', help='Set url you want to open at start.')
     parser.add_argument('-v', '--verbose', action = 'store_true', help ='Show details of this browser.')
-    args = parser.parse_args()
-    if args.debug: print(args)
-    return args
+    ret_args = parser.parse_args()
+    if args.debug:
+        print(ret_args)
+    return ret_args
 
 def create_main_window():
     main_window = PersephonepMainWindow()
@@ -50,8 +51,20 @@ class PersephonepMainWindow(QMainWindow):
         self.setGeometry(self.left, self.top, self.width, self.height)
         '''
         self.setWindowTitle(self.title)
-        self.table_widget = PersephonepTableWidget(self)
+        self.table_widget = PersephonepTabWidget(self)
         self.setCentralWidget(self.table_widget)
+
+        ''' ToDo: Add Download Controller
+        '''
+        self._zoom_label = QLabel("This is status bar.")
+        self.statusBar().addPermanentWidget(self._zoom_label)
+
+
+        ''' ToDo: Add Config Controller
+        '''
+
+        ''' ToDo: Create Menu
+        '''
 
 
 ''' This is a Tab Handle Class for this browser.

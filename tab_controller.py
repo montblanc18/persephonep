@@ -11,16 +11,15 @@ from PyQt5.QtCore import pyqtSlot
 ''' original files
 '''
 
-class PersephonepTableWidget(QWidget):
+class PersephonepTabWidget(QWidget):
 
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
         self.layout = QVBoxLayout(self)
 
-        # initialize tab screen
+        ''' initialize tab screen
+        '''
         self.tabs = QTabWidget()
-        #  self.tab1 = QWidget()
-        #  self.tab2 = QWidget()
         self.tab = []  # Store the PersephonepWindow Class
         self.tabs.resize(1200, 800)
 
