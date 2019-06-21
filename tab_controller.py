@@ -12,6 +12,16 @@ from PyQt5.QtCore import pyqtSlot
 '''
 
 class PersephonepTabWidget(QWidget):
+    '''
+    This is a Tab Handle Class for this browser.
+    This class is called by PersephonepMainWindow,
+    and it has some PersephonepWindos.
+    
+    Attributes:
+    ----------
+    TODO
+    '''
+
 
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
