@@ -24,7 +24,7 @@ def persephonep_parser():
     parser.add_argument('-u', '--url', type=str, default='http://www.google.com', help='Set url you want to open at start.')
     parser.add_argument('-v', '--verbose', action='store_true', help='Show details of this browser.')
     ret_args = parser.parse_args()
-    if args.debug:
+    if ret_args.debug:
         print(ret_args)
     return ret_args
 
@@ -68,9 +68,8 @@ class PersephonepMainWindow(QMainWindow):
         # TODO: Add Config Controller
         # TODO: Create Menu
         
-
 if __name__ == '__main__':
-
+    
     # parse options
     args = persephonep_parser()
 
