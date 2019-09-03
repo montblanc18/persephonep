@@ -1,13 +1,18 @@
 
 # PersephoneP
 
-PersephoneP is a web browser written by Python3 and PyQt5.
+PersephoneP is a web browser written by Python3 and [PyQt5](https://www.riverbankcomputing.com/static/Docs/PyQt5/).
 This browser is based on Chromium,
  which is an open source web browser engine included in PyQt5.
 The data from web pages gotten by Chromium is drawn on PyQt Widgets.
 PyQt is one of the most popular Python bindings for the Qt cross-platform C++ framework.
 Utilizing the characteristics of Qt as cross-platform framework,
  PersephoneP is able to run on multi-platform if python is installed.
+
+## Requirement
+
+- PyQt5 >= 5.12, < 5.13
+- PyQtWebEngine >= 5.12, < 5.13
 
 ## Install
 
@@ -17,7 +22,7 @@ Please use ```git clone``` , ```pip install persephonep```,
 This browser depends on PyQt5.
 This browser needs only PyQt5 if you use PyQt 5.11.3 or earlier,
  however, this browser needs PyQt5 and PyQtWebEngine library
- if you wanna use PyQt 5.12 or later.
+ if you wanna use PyQt 5.12 and PyQtWebEngine 5.12.
 
 ## How to Use
 
@@ -27,6 +32,16 @@ Type below and Persophonep starts.
 $ python persephonep.py
 etc...
 ```
+
+or 
+
+```python
+>> import persephonep
+>> persephonep.main()
+```
+
+If you call persephonep via python shell ( ```persephonep.main()``` ), your python shell will exit just after the persephonep browser is closed.
+That is because calling ```sys.exit()``` in ```persephonep.main()```.
 
 ## How to Test
 
@@ -44,8 +59,17 @@ Some people say that making browser is reinventing the wheel,
  however, there are two reasons.
 
 1. Understanding the way to get data from web page and to draw it on our PC.
-1. Some workers, including me, are forced to use the IE at work. BUT,
+1. Some workers are forced to use the IE at work. BUT,
  we wanna use other than IE!!
+
+### History of Development
+
+1. I got a job with a japanese company.
+1. This company prohibited my using browsers except IE.
+1. I decided to develop my browser.
+1. That company forced me to submit applications before installing software or libraries which I want.
+1. PyQt5 based on only sip module and sip run with PurePython.
+1. I decided to use PyQt5.
 
 ## Notice
 
