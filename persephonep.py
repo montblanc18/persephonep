@@ -28,7 +28,7 @@ def persephonep_parser():
         print(ret_args)
     return ret_args
 
-def create_main_window():
+def create_main_window(app):
     main_window = PersephonepMainWindow()
     available_geometry = app.desktop().availableGeometry(main_window)
     main_window.resize(available_geometry.width() * 3 / 4, available_geometry.height() * 3 / 4)
@@ -68,8 +68,8 @@ class PersephonepMainWindow(QMainWindow):
         # TODO: Add Config Controller
         # TODO: Create Menu
         
-if __name__ == '__main__':
-    
+
+def main():    
     # parse options
     args = persephonep_parser()
 
@@ -79,7 +79,7 @@ if __name__ == '__main__':
                             'icon_persephone.png')
     app.setWindowIcon(QIcon(icon_path))
     # Show Windows
-    main_win = create_main_window() 
+    main_win = create_main_window(app) 
     # TODO: Open URLs which you set by args
     ''' Call event loop
     Notice : 
@@ -91,3 +91,7 @@ if __name__ == '__main__':
     exit_code = app.exec_()
     # TODO: Write save data like setting before finishing program
     sys.exit(exit_code)
+
+
+if __name__ == '__main__':
+    main()
