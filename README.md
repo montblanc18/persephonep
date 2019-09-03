@@ -9,6 +9,11 @@ PyQt is one of the most popular Python bindings for the Qt cross-platform C++ fr
 Utilizing the characteristics of Qt as cross-platform framework,
  PersephoneP is able to run on multi-platform if python is installed.
 
+## Requirement
+
+- PyQt5 >= 5.12, < 5.13
+- PyQtWebEngine >= 5.12, < 5.13
+
 ## Install
 
 Please use ```git clone``` , ```pip install persephonep```,
@@ -17,7 +22,7 @@ Please use ```git clone``` , ```pip install persephonep```,
 This browser depends on PyQt5.
 This browser needs only PyQt5 if you use PyQt 5.11.3 or earlier,
  however, this browser needs PyQt5 and PyQtWebEngine library
- if you wanna use PyQt 5.12 or later.
+ if you wanna use PyQt 5.12 and PyQtWebEngine 5.12.
 
 ## How to Use
 
@@ -27,6 +32,16 @@ Type below and Persophonep starts.
 $ python persephonep.py
 etc...
 ```
+
+or 
+
+```python
+>> import persephonep
+>> persephonep.main()
+```
+
+If you call persephonep via python shell ( ```persephonep.main()``` ), your python shell will exit just after the persephonep browser is closed.
+That is because calling ```sys.exit()``` in ```persephonep.main()```.
 
 ## How to Test
 
