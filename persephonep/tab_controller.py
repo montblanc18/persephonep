@@ -5,7 +5,7 @@
 from PyQt5.QtWidgets import (QMainWindow, QWidget, QPushButton,
                              QTabWidget, QApplication,
                              QVBoxLayout, QLabel, QDesktopWidget)
-from func_persephonep import PersephonepWindow, program_name
+from . import func_persephonep
 from PyQt5.QtCore import pyqtSlot
 
 ''' original files
@@ -41,9 +41,9 @@ class PersephonepTabWidget(QWidget):
         self.add_button.setStyleSheet('background-color:gray')
         # add tab to last of index
         self.add_button.clicked.connect(lambda: self._addTab(len(self.tab)))
-        app_info_text = '%s is a Web Browser based on Python 3 and PyQt5,' \
-                        ' developed by @montblanc18.' % program_name()
-        self.app_info = QLabel(app_info_text)
+        # app_info_text = '%s is a Web Browser based on Python 3 and PyQt5,' \
+        #                 ' developed by @montblanc18.' % func_persephonep.program_name()
+        # self.app_info = QLabel(app_info_text)
 
         # define the delete tab process
         self.tabs.setTabsClosable(True)
@@ -59,13 +59,13 @@ class PersephonepTabWidget(QWidget):
         # Add tabs to widget
         self.layout.addWidget(self.add_button)
         self.layout.addWidget(self.tabs)
-        self.layout.addWidget(self.app_info)
+        # self.layout.addWidget(self.app_info)
         self.setLayout(self.layout)
 
     def _addTab(self, index):
         ''' add Tab
         '''
-        self.tab.append(PersephonepWindow(parent=self))
+        self.tab.append(func_persephonep.PersephonepWindow(parent=self))
         #  do not match tab index & tab num
         self.tabs.addTab(self.tab[-1], '')
         self.tabs.setTabText(index, 'VanilaPage')
