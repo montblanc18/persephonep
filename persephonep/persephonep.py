@@ -78,8 +78,9 @@ def main():
     # setWindowIcon is a method for QApplication, not for QWidget
     # print(sys.modules[__name__].__file__)
     icon_path = os.path.join(os.path.dirname(sys.modules[__name__].__file__),\
-                            '../resource/icon_persephone.png')
-    print(icon_path)
+                             '../persephonep/icon_persephone.png.py')
+    # icon_path = 'persephonep/icon_persephone.png'
+    # print(icon_path)
     app.setWindowIcon(QIcon(icon_path))
     # Show Windows
     main_win = create_main_window(app) 
