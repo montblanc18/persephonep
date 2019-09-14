@@ -17,7 +17,7 @@ setup(
     url = 'https://github.com/montblanc18/persephonep',
     license = 'MIT',
     install_package_data = True,
-    package_dir = {'input':'input',},
+    package_dir = {'input':'input','resource':'resource'},
     packages = find_packages(exclude = ('tests', 'docs')),
     package_data = {'input':['input'],},
     install_requires = ['PyQt5', 'pytest-qt'],

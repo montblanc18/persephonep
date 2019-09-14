@@ -12,10 +12,8 @@ from PyQt5.QtGui import QIcon
 
 ''' original files
 '''
-from func_persephonep import program_name
-from tab_controller import PersephonepTabWidget
-
-
+from . import func_persephonep
+from . import tab_controller
 ''' functions
 '''
 def persephonep_parser():
@@ -53,17 +51,19 @@ class PersephonepMainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.title = program_name()
+        self.title = func_persephonep.program_name()
         # self.left = 100
         # self.top = 100
         # self.width = 1200
         # self.height = 800
         # self.setGeometry(self.left, self.top, self.width, self.height)
         self.setWindowTitle(self.title)
-        self.table_widget = PersephonepTabWidget(self)
+        self.table_widget = tab_controller.PersephonepTabWidget(self)
         self.setCentralWidget(self.table_widget)
         # TODO: Add Download Controller
-        self._zoom_label = QLabel("This is status bar.")
+        app_info_text = '%s is a Web Browser based on Python 3 and PyQt5,' \
+                         ' developed by @montblanc18.' % func_persephonep.program_name()
+        self._zoom_label = QLabel(app_info_text)
         self.statusBar().addPermanentWidget(self._zoom_label)
         # TODO: Add Config Controller
         # TODO: Create Menu
@@ -71,12 +71,15 @@ class PersephonepMainWindow(QMainWindow):
 
 def main():    
     # parse options
+    global app
     args = persephonep_parser()
 
     app = QApplication(sys.argv)
     # setWindowIcon is a method for QApplication, not for QWidget
+    # print(sys.modules[__name__].__file__)
     icon_path = os.path.join(os.path.dirname(sys.modules[__name__].__file__),\
-                            'icon_persephone.png')
+                            '../resource/icon_persephone.png')
+    print(icon_path)
     app.setWindowIcon(QIcon(icon_path))
     # Show Windows
     main_win = create_main_window(app) 
