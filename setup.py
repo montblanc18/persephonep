@@ -3,7 +3,7 @@
 from setuptools import setup
 from setuptools import find_packages
 
-__version__ = '1.3.1'
+__version__ = '2.0.1'
 
 setup(
     name = 'persephonep',
