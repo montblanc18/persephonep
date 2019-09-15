@@ -5,19 +5,15 @@ import sys
 import os
 import re
 from PyQt5.QtWidgets import (QWidget, QLineEdit,
-                             QGridLayout,
-                             # QLabel, QTextEdit,
+                             QGridLayout, QLabel, QDialog,
+                             QHBoxLayout,
                              QApplication, QPushButton, QDesktopWidget)
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QUrl
-from PyQt5.QtWebEngineWidgets import (QWebEngineView,
-                                      # QWebEngineProfile,
-                                      # QWebEngineDownloadItem,
-                                      # QWebEnginePage
-                                      )
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+
 
 __program__ = 'PERSEPHONEP'
-
 
 ''' This is a single page of the browser.
     This class equals a tab of PersephonepTableWidget.
@@ -25,6 +21,34 @@ __program__ = 'PERSEPHONEP'
     that is not recomended.
     (This ability might be deleted in the near future.)
 '''
+
+
+def program_name():
+    return __program__
+
+class DownloadWindow(QWidget):
+
+    def __init__(self, item, parent=None):
+        # こいつがサブウィンドウの実体？的な。ダイアログ
+        super(DownloadWindow, self).__init__()
+        self.w = QDialog(parent)
+        self.label = QLabel()
+        self.item = item
+        self.label.setText('Downloading {}'.format(self.item.path()))
+        layout = QHBoxLayout()
+        layout.addWidget(self.label)
+        self.item.accept()
+        print(self.item.totalBytes())
+        self.item.finished.connect(self.finish_download)
+        # item = QWebEngineDownloadItem has 4 Signals, downloadProgress, finished, isPausedChanged, stateChanged.
+        self.w.setLayout(layout)
+
+    def show(self):
+        self.w.exec_()
+
+    def finish_download(self):
+        self.label.setText('Finish to download {}'.format(self.item.path()))
+        print('finish')
 
 
 class PersephonepWindow(QWidget):
@@ -43,24 +67,22 @@ class PersephonepWindow(QWidget):
         self.window = QWebEngineView()
 
         # disguise
-        '''
-        profile = QWebEngineProfile()
-        profile.setHttpUserAgent('IE')
-        page = QWebEnginePage(profile)
-        self.window.setPage(page)
-        print(
-            # Set user agent "{}"
-            .format(
-                self.window.page().profile().httpUserAgent()
-            )
-        )
-        '''
+        # profile = QWebEngineProfile()
+        # profile.setHttpUserAgent('IE')
+        # page = QWebEnginePage(profile)
+        # self.window.setPage(page)
+        # print(
+        #    # Set user agent "{}"
+        #   .format(
+        #        self.window.page().profile().httpUserAgent()
+        #    )
+        #)
 
         # condig url
         self.window.load(QUrl(initurl))
         self.window.resize(1000, 600)
         self.window.move(200, 200)
-        self.window.setWindowTitle(__program__)
+        self.window.setWindowTitle(program_name())
 
         # setting button
         self.back_button = QPushButton('back')
@@ -102,7 +124,7 @@ class PersephonepWindow(QWidget):
         if parent is None:
             self.resize(1200, 800)
             self.center()
-            self.setWindowTitle(__program__)
+            self.setWindowTitle(program_name())
             self.show()
 
     def center(self):
@@ -115,14 +137,12 @@ class PersephonepWindow(QWidget):
 
     def loadPage(self):
         ''' move web page which is set at url_edit
-        '''
-        move_url = self.url_edit.text()
-        '''check url
         If the head of move_url equals 'http://' or 'https://',
-         query to google search form.
+        query to google search form.
         If the head of move_url doed not include above protocol,
          but the style of *.*.*.*, add http:// to its_head
         '''
+        move_url = self.url_edit.text()
         if self.check_url_protocol_ipv4(move_url):
             move_url = 'http://' + move_url
         elif not self.check_url_protocol(move_url):
@@ -171,7 +191,10 @@ class PersephonepWindow(QWidget):
     def _downloadRequested(self, item):  # QWebEngineDownloadItem
         # print('downloading to', item.path)
         item.accept()
-
+        
+        dw = DownloadWindow(item)
+        dw.show()
+        
 
 if __name__ == '__main__':
     # mainPyQt5()
