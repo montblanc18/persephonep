@@ -19,7 +19,6 @@ setup(
     url='https://github.com/montblanc18/persephonep',
     license='MIT',
     # install_package_data = True,
-    # py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
     package_dir={'':'src', 'resource':'resource'},
     packages = find_packages(where='src', exclude = ('tests', 'docs')),
     # package_data = {'input':['input'],},
