@@ -194,7 +194,8 @@ class PersephonepWindow(QWidget):
         
         dw = DownloadWindow(item)
         dw.show()
-        
+
+
 
 if __name__ == '__main__':
     # mainPyQt5()
