@@ -5,7 +5,7 @@
 from PyQt5.QtWidgets import (QMainWindow, QWidget, QPushButton,
                              QTabWidget, QApplication,
                              QVBoxLayout, QLabel, QDesktopWidget)
-from . import func_persephonep
+import func_persephonep
 from PyQt5.QtCore import pyqtSlot
 
 ''' original files
