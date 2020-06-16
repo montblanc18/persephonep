@@ -11,8 +11,8 @@ jobs:
       - checkout
       - run:
           name: install dependencies
-          command: |
-          pip install -e . -r requirements.txt
+          command: 
+            pip install -e . -r requirements.txt
 
 workflows:
   main:
