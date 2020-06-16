@@ -4,16 +4,15 @@ orbs:
   python: circleci/python@0.2.1
 
 jobs:
-  build-and-test:
-    executor: python/default
+  build-and-test: 
+    docker:
+      - image: circleci/python:3.7.7-buster
     steps:
       - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
       - run:
-          command: ./manage.py test
-          name: Test
+          name: install dependencies
+          command: |
+          pip install -e . -r requirements.txt
 
 workflows:
   main:
