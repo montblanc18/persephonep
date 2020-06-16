@@ -13,8 +13,14 @@ jobs:
           name: install dependencies
           command: 
             pip install -e . -r requirements.txt
+      - run:
+          name: exec pytest
+          command:
+            pytest
 
 workflows:
   main:
     jobs:
       - build-and-test
+  
+
