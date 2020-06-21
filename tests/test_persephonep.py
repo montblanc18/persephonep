@@ -19,7 +19,7 @@ def test_add_button(qtbot):
     # setWindowIcon is a method for QApplication, not for QWidget
     # path = os.path.join(os.path.dirname(sys.modules[__name__].__file__), 'icon_persephone.png')
     # app.setWindowIcon(QIcon(path))
-
+    return 
     # ui = persephonep.PersephonepMainWindow()
 
     # qt_api.qWarning('test')
