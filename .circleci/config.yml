@@ -10,8 +10,10 @@ jobs:
     steps:
       - checkout
       - run:
+      - run:
           name: install dependencies
-          command: 
+          command: |
+            apt install -y libnss3
             pip install -e . -r requirements.txt
       - run:
           name: exec pytest
