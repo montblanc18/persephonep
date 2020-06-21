@@ -12,7 +12,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            sudo apt install -y libnss3 libxcomposite-dev libxcursor-dev libxi-dev libxtst-dev libxrandr-dev libxkbcommon-dev libdbus-1-dev
+            sudo apt install -y libnss3 libxcomposite-dev libxcursor-dev libxi-dev libxtst-dev libxrandr-dev libxkbcommon-dev libdbus-1-dev libasound2-dev
             pip install -e . -r requirements.txt
       - run:
           name: exec pytest
