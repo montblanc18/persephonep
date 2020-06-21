@@ -10,7 +10,6 @@ jobs:
     steps:
       - checkout
       - run:
-      - run:
           name: install dependencies
           command: |
             apt install -y libnss3
