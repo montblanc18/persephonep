@@ -13,7 +13,7 @@ from pytestqt.qt_compat import qt_api
 
 from persephonep import persephonep
 
-def test_add_button(qtbot):
+def test_add_button():
     # app = QApplication(sys.argv) # これ入れるとセグフォする
 
     # setWindowIcon is a method for QApplication, not for QWidget
