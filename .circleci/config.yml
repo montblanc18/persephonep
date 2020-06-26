@@ -17,7 +17,7 @@ jobs:
       - run:
           name: exec pytest
           command:
-            pytest
+            QT_DEBUG_PLUGINS=1 pytest
 
 workflows:
   main:
