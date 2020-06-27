@@ -23,8 +23,7 @@ jobs:
       - run:
           name: Pytest
           command: 
-            QT_DEBUG_PLUGINS=1 xvfb-run -a pytest -s -v
-
+            QT_DEBUG_PLUGINS=1 pytest -sv
 workflows:
   main:
     jobs:
