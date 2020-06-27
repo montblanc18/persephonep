@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Install pip modules
           command: |
-            python3 -m venv venv
+            python -m venv venv
             . venv/bin/activate
             pip install -e . -r requirements.txt
       - run:
