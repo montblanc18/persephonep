@@ -36,7 +36,7 @@ jobs:
           name: Pytest
           command: |
             . venv/bin/activate
-            xvfb-run QT_DEBUG_PLUGINS=1 pytest -sv
+            QT_DEBUG_PLUGINS=1 xvfb-run pytest -sv
 workflows:
   main:
     jobs:
