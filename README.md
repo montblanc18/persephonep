@@ -19,11 +19,6 @@ Utilizing the characteristics of Qt as cross-platform framework,
 Please use ```git clone & python setup.py install``` , ```pip install persephonep```,
  or download from this page.
 
-This browser depends on PyQt5.
-This browser needs only PyQt5 if you use PyQt 5.11.3 or earlier,
- however, this browser needs PyQt5 and PyQtWebEngine library
- if you wanna use PyQt 5.12 and PyQtWebEngine 5.12.
-
 ## How to Use
 
 Type below and Persophonep starts.
@@ -42,8 +37,10 @@ This browser is tested by pytest & pytest-qt.
 Please type below commands if you want to execute those tests.
 
 ```text
+$ python -m venv venv
+$ source venv/bin/activate
+$ pip install -e . -r requirements.txt
 $ pytest
-etc...
 ```
 
 ## The reasons of Development
