@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Install dependencies
           command: 
-            sudo apt update && sudo apt install -y libnss3 libxcomposite-dev libxcursor-dev libxi-dev libxtst-dev libxrandr-dev libxkbcommon-dev libxkbcommon-x11-0 libdbus-1-dev libasound2-dev xvfb
+            sudo apt update && sudo apt install -y libnss3 libxcomposite-dev libxcursor-dev libxi-dev libxtst-dev libxrandr-dev libxkbcommon-dev libxkbcommon-x11-0 libdbus-1-dev libasound2-dev xvfb x11-utils
       - run:
           name: Install pip modules
           command: |
