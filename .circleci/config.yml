@@ -8,7 +8,6 @@ jobs:
     docker:
       - image: circleci/python:3.7.7-buster
     steps:
-
       # Dependencies
       - checkout
       - restore_cache:
@@ -18,8 +17,9 @@ jobs:
             - venv-
       - run:
           name: Install dependencies
-          command: 
-            sudo apt update && sudo apt install -y libnss3 libxcomposite-dev libxcursor-dev libxi-dev libxtst-dev libxrandr-dev libxkbcommon-dev libxkbcommon-x11-0 libdbus-1-dev libasound2-dev xvfb x11-utils
+          command: |
+            sudo apt update
+            sudo apt install -y libnss3 libxcomposite-dev libxcursor-dev libxi-dev libxtst-dev libxrandr-dev libxkbcommon-dev libxkbcommon-x11-0 libdbus-1-dev libasound2-dev xvfb x11-utils
       - run:
           name: Install pip modules
           command: |
@@ -27,6 +27,7 @@ jobs:
             . venv/bin/activate
             pip install -U pip
             pip install -e . -r requirements.txt
+            export QT_DEBUG_PLUGINS=1
       - save_cache:
           key: venv-{{ .Branch }}-{{ checksum "setup.py" }}
           paths:
@@ -36,7 +37,7 @@ jobs:
           name: Pytest
           command: |
             . venv/bin/activate
-            DISPLAY=XAUTHORITY pytest -s -v
+            pytest -rfs -v
 workflows:
   main:
     jobs:
