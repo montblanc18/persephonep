@@ -8,6 +8,13 @@ jobs:
     docker:
       - image: circleci/python:3.7.7-buster
     steps:
+
+      # Dependencies
+      - restore_cache:
+          keys:
+            - venv-{{ .Branch }}-{{ checksum "setup.py" }}
+            - venv-{{ .Branch }}
+            - venv
       - checkout
       - run:
           name: Install dependencies
@@ -20,9 +27,16 @@ jobs:
             . venv/bin/activate
             pip install -U pip
             pip install -e . -r requirements.txt
+      - save_chache:
+          key:
+            venv-{{ .Branch }}-{{ checksum "setup.py" }}
+            paths:
+              - "venv"
+      # Tests
       - run:
           name: Pytest
-          command: 
+          command: |
+            . venv/bin/activate
             QT_DEBUG_PLUGINS=1 pytest -sv
 workflows:
   main:
