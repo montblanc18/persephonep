@@ -36,7 +36,7 @@ jobs:
           name: Pytest
           command: |
             . venv/bin/activate
-            pytest -s -v
+            DISPLAY=XAUTHORITY pytest -s -v
 workflows:
   main:
     jobs:
