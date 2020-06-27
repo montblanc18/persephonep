@@ -10,12 +10,12 @@ jobs:
     steps:
 
       # Dependencies
+      - checkout
       - restore_cache:
           keys:
             - venv-{{ .Branch }}-{{ checksum "setup.py" }}
             - venv-{{ .Branch }}
             - venv
-      - checkout
       - run:
           name: Install dependencies
           command: 
@@ -36,7 +36,7 @@ jobs:
           name: Pytest
           command: |
             . venv/bin/activate
-            QT_DEBUG_PLUGINS=1 pytest -sv
+            xvfb-run QT_DEBUG_PLUGINS=1 pytest -sv
 workflows:
   main:
     jobs:
