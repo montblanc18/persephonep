@@ -6,19 +6,23 @@ orbs:
 jobs:
   build-and-test: 
     docker:
-      - image: circleci/python:3.7.7-stretch
+      - image: circleci/python:3.7.7-buster
     steps:
       - checkout
       - run:
-          name: install dependencies
-          command: |
+          name: Install dependencies
+          command: 
             sudo apt update && sudo apt install -y libnss3 libxcomposite-dev libxcursor-dev libxi-dev libxtst-dev libxrandr-dev libxkbcommon-dev libxkbcommon-x11-0 libdbus-1-dev libasound2-dev xvfb
+      - run:
+          name: Install pip modules
+          command:
+            python3 -m venv venv
+            . venv/bin/activate
             pip install -e . -r requirements.txt
       - run:
-          name: exec pytest
-          command: |
-            export QT_DEBUG_PLUGINS=1 
-            xvfb-run -a pytest -sv
+          name: Pytest
+          command: 
+            QT_DEBUG_PLUGINS=1 xvfb-run -a pytest -s -v
 
 workflows:
   main:
