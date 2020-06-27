@@ -28,10 +28,9 @@ jobs:
             pip install -U pip
             pip install -e . -r requirements.txt
       - save_chache:
-          key:
-            venv-{{ .Branch }}-{{ checksum "setup.py" }}
-            paths:
-              - "venv"
+          key: venv-{{ .Branch }}-{{ checksum "setup.py" }}
+          paths:
+            - "venv"
       # Tests
       - run:
           name: Pytest
