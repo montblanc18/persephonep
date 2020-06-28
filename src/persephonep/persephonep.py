@@ -12,8 +12,10 @@ from PyQt5.QtGui import QIcon
 
 ''' original files
 '''
-from . import func_persephonep
-from . import tab_controller
+
+sys.path.append(os.path.abspath(os.path.dirname(os.path.abspath(__file__))))
+import func_persephonep
+import tab_controller
 ''' functions
 '''
 def persephonep_parser():
