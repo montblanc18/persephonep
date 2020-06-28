@@ -1,6 +1,9 @@
 
 # PersephoneP
 
+[![CircleCI](https://circleci.com/gh/montblanc18/persephonep/tree/master.svg?style=shield)](https://circleci.com/gh/montblanc18/persephonep/tree/master)
+
+
 PersephoneP is a web browser written by Python3 and [PyQt5](https://www.riverbankcomputing.com/static/Docs/PyQt5/).
 This browser is based on Chromium,
  which is an open source web browser engine included in PyQt5.
@@ -11,8 +14,7 @@ Utilizing the characteristics of Qt as cross-platform framework,
 
 ## Requirement
 
-- PyQt5 >= 5.12
-- PyQtWebEngine >= 5.12
+Please show requirements.txt.
 
 ## Install
 
