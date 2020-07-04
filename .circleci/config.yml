@@ -20,8 +20,6 @@ jobs:
           command: |
             sudo apt update
             sudo apt install -y \
-              python3.6-dev \
-              python3.8-dev \
               libnss3 \
               libxcomposite-dev \
               libxcursor-dev \
