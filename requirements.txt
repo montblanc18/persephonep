@@ -1,6 +1,7 @@
-PyQt5 >= 5.15
-PyQt5-sip >= 12.8.0
-PyQtWebEngine >= 5.12
+PyQt5>=5.15
+PyQt5-sip>=12.8.0
+PyQtWebEngine>=5.12
 pytest>=5.4.3
-pytest-qt >= 3.3.0
+pytest-qt>=3.3.0
+tox>=3.16.1
 # pytest-xvfb>=2.0.0
