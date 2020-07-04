@@ -37,7 +37,7 @@ jobs:
           name: Pytest
           command: |
             . venv/bin/activate
-            pytest -rfs -v
+            tox
 workflows:
   main:
     jobs:
