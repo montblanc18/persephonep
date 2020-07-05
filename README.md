@@ -1,7 +1,8 @@
 
 # PersephoneP
 
-[![CircleCI](https://circleci.com/gh/montblanc18/persephonep/tree/master.svg?style=shield)](https://circleci.com/gh/montblanc18/persephonep/tree/master)
+[![version](http://img.shields.io/pypi/v/persephonep.svg)](https://pypi.python.org/pypi/persephonep/)
+
 
 
 PersephoneP is a web browser written by Python3 and [PyQt5](https://www.riverbankcomputing.com/static/Docs/PyQt5/).
