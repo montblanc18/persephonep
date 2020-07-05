@@ -34,6 +34,14 @@ jobs:
               x11-utils \
               herbstluftwm
       - run:
+          name: Run Dummy DISPLAY
+          command: |
+            export DISPLAY=:99.0
+            sudo /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1920x1200x24 -ac +extension GLX +render -noreset
+            sleep 3
+            sudo herbstluftwm &
+            sleep 1 
+      - run:
           name: Install pip modules
           command: |
             python -m venv venv
@@ -49,9 +57,6 @@ jobs:
       - run:
           name: Pytest
           command: |
-            export DISPLAY=:99.0
-            sudo /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1920x1200x24 -ac +extension GLX +render -noreset
-            sudo herbstluftwm &
             . venv/bin/activate
             tox
 workflows:
