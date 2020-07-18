@@ -4,4 +4,4 @@ PyQtWebEngine>=5.12
 pytest>=5.4.3
 pytest-qt>=3.3.0
 tox>=3.16.1
-pytest-xvfb>=2.0.0
+black
