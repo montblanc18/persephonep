@@ -90,7 +90,7 @@ class PersephonepMainWindow(QMainWindow):
             " developed by @montblanc18." % func_persephonep.program_name()
         )
 
-        self.statusBar().addPermanentWidget(self._zoom_label)
+        # self.statusBar().addPermanentWidget(self._zoom_label)
         # TODO: Add Config Controller
         # TODO: Create Menu
 
