@@ -19,8 +19,7 @@ Please show requirements.txt.
 
 ## Install
 
-Please use ```git clone & python setup.py install``` , ```pip install persephonep```,
- or download from this page.
+Please use ```pip install persephonep```, or download from this page.
 
 ## How to Use
 
@@ -39,20 +38,29 @@ That is because calling ```sys.exit()``` in ```persephonep.browser()```.
 This browser is tested by pytest & pytest-qt.
 Please type below commands if you want to execute those tests.
 
+### Setup
+
 ```text
+$ git clone https://github.com/montblanc18/persephonep.git
+$ cd persephonep
 $ python -m venv venv
 $ source venv/bin/activate
 $ pip install -U pip
 $ pip install -e . -r requirements.txt
 $ export QT_DEBUG_PLUGINS=1
+```
+
+### pytest
+
+```text
 $ pytest
 ```
 
-<!--
+### tox
+
 ```text
-$ pytest --no-xvfb
+$ tox
 ```
--->
 
 ## The reasons of Development
 
