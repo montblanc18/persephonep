@@ -4,6 +4,7 @@
 
 from persephonep import func_persephonep
 
+
 def test_check_url_protocol():
     return 0
     # mainPyQt5()
