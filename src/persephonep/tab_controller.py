@@ -1,36 +1,39 @@
 #!/usr/bin/env python
 # coding: utf-8
 #
+"""Control tab of browser."""
 
+from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import (
-    QMainWindow,
-    QWidget,
+    # QApplication,
+    QDesktopWidget,
+    # QLabel,
+    # QMainWindow,
     QPushButton,
     QTabWidget,
-    QApplication,
     QVBoxLayout,
-    QLabel,
-    QDesktopWidget,
+    QWidget,
 )
-import func_persephonep
-from PyQt5.QtCore import pyqtSlot
 
 """ original files
 """
+import func_persephonep
 
 
 class PersephonepTabWidget(QWidget):
     """
     This is a Tab Handle Class for this browser.
+
     This class is called by PersephonepMainWindow,
     and it has some PersephonepWindos.
-    
+
     Attributes:
     ----------
     TODO
     """
 
     def __init__(self, parent):
+        """Set up tab."""
         super(QWidget, self).__init__(parent)
         self.layout = QVBoxLayout(self)
 
@@ -70,8 +73,7 @@ class PersephonepTabWidget(QWidget):
         self.setLayout(self.layout)
 
     def _addTab(self, index):
-        """ add Tab
-        """
+        """Add Tab."""
         self.tab.append(func_persephonep.PersephonepWindow(parent=self))
         #  do not match tab index & tab num
         self.tabs.addTab(self.tab[-1], "")
@@ -79,22 +81,19 @@ class PersephonepTabWidget(QWidget):
         self.tab[-1].window.titleChanged.connect(self.updateTabName)
 
     def closeTab(self, index):
-        """ close Tab.
-        """
+        """Close Tab."""
         # widget = self.tabs.widget(index)
         self.tab.pop(index)
         self.tabs.removeTab(index)
 
     def updateTabName(self):
-        """ re-set tab name
-        """
+        """Re-set tab name."""
         self.tabs.setTabText(
             self.tabs.currentIndex(), self.tab[self.tabs.currentIndex()].window.title()
         )
 
     def center(self):
-        """ centering widget
-        """
+        """Center widget."""
         qr = self.frameGeometry()
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
@@ -102,6 +101,7 @@ class PersephonepTabWidget(QWidget):
 
     @pyqtSlot()
     def on_click(self):
+        """Catch click event."""
         print("\n")
         for currentQTableWidgetItem in self.tableWidget.selectedItems():
             print(

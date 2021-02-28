@@ -1,35 +1,40 @@
 #!/usr/bin/env python
 # coding: utf-8
 #
+"""main python script of persephonep."""
 
-import sys
-import os
 import argparse
-from PyQt5.QtWidgets import (
-    QMainWindow,
-    QWidget,
-    QPushButton,
-    QTabWidget,
-    QApplication,
-    QVBoxLayout,
-    QLabel,
-    QDesktopWidget,
-    QStatusBar,
-)
+import os
+import sys
+
 from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import (
+    QApplication,
+    # QDesktopWidget,
+    # QLabel,
+    QMainWindow,
+    # QPushButton,
+    # QTabWidget,
+    # QStatusBar,
+    # QWidget,
+    # QVBoxLayout,
+)
 
 """ original files
 """
-
 sys.path.append(os.path.abspath(os.path.dirname(os.path.abspath(__file__))))
+
 import func_persephonep
+
 import tab_controller
+
 
 """ functions
 """
 
 
 def persephonep_parser():
+    """Option parser."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--debug", action="store_true", help="Show debug messages.")
     parser.add_argument(
@@ -49,6 +54,7 @@ def persephonep_parser():
 
 
 def create_main_window(app):
+    """Create main window and return its object."""
     main_window = PersephonepMainWindow()
     available_geometry = app.desktop().availableGeometry(main_window)
     main_window.resize(
@@ -61,6 +67,7 @@ def create_main_window(app):
 class PersephonepMainWindow(QMainWindow):
     """
     This is a main window of the browser.
+
     This class includes PersephonepMainWidget.
 
     Attributes:
@@ -85,10 +92,10 @@ class PersephonepMainWindow(QMainWindow):
         self.table_widget = tab_controller.PersephonepTabWidget(self)
         self.setCentralWidget(self.table_widget)
         # TODO: Add Download Controller
-        app_info_text = (
-            "%s is a Web Browser based on Python 3 and PyQt5,"
-            " developed by @montblanc18." % func_persephonep.program_name()
-        )
+        # app_info_text = (
+        #    "%s is a Web Browser based on Python 3 and PyQt5,"
+        #    " developed by @montblanc18." % func_persephonep.program_name()
+        # )
 
         # self.statusBar().addPermanentWidget(self._zoom_label)
         # TODO: Add Config Controller
@@ -96,8 +103,9 @@ class PersephonepMainWindow(QMainWindow):
 
 
 def main():
+    """Handle main sequence."""
     global app
-    args = persephonep_parser()
+    persephonep_parser()
 
     app = QApplication(sys.argv)
     # setWindowIcon is a method for QApplication, not for QWidget
@@ -109,7 +117,7 @@ def main():
     # print(icon_path)
     app.setWindowIcon(QIcon(icon_path))
     # Show Windows
-    main_win = create_main_window(app)
+    create_main_window(app)
     """ Call event loop
         QApplication manages events, resources, and so on.
         PyQt Application needs this object.
@@ -117,6 +125,7 @@ def main():
         By executing this sentence, program hands management of resources to PyQt.
     """
     # TODO: Write save data like setting before finishing program
+    exit_code = 1
     sys.exit(exit_code)
 
 
