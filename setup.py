@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+"""Set up this package."""
 
 from setuptools import find_packages
 from setuptools import setup

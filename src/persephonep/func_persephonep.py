@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""Suport functions."""
 
 import os
 import re
@@ -32,12 +33,15 @@ __program__ = "PERSEPHONEP"
 
 
 def program_name():
+    """Return program name."""
     return __program__
 
 
 class DownloadWindow(QWidget):
+    """Control downlod window."""
+
     def __init__(self, item, parent=None):
-        # こいつがサブウィンドウの実体？的な。ダイアログ
+        """Set up main dialog of sub window."""
         super(DownloadWindow, self).__init__()
         self.w = QDialog(parent)
         self.label = QLabel()
@@ -52,21 +56,25 @@ class DownloadWindow(QWidget):
         self.w.setLayout(layout)
 
     def show(self):
+        """Show dialog."""
         self.w.exec_()
 
     def finish_download(self):
+        """Finish download process."""
         self.label.setText("Finish to download {}".format(self.item.path()))
         print("finish")
 
 
 class PersephonepWindow(QWidget):
-    def __init__(self, parent=None):
-        super(PersephonepWindow, self).__init__()
+    """Control main window."""
 
+    def __init__(self, parent=None):
+        """Call main window."""
+        super(PersephonepWindow, self).__init__()
         self.initUI(parent=parent)
 
     def initUI(self, parent=None):
-
+        """Set up main window."""
         # config
         initurl = "https://www.google.co.jp"
 
@@ -134,14 +142,16 @@ class PersephonepWindow(QWidget):
             self.show()
 
     def center(self):
-        """centering widget"""
+        """Center widget."""
         qr = self.frameGeometry()
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
     def loadPage(self):
-        """move web page which is set at url_edit
+        """
+        Move web page which is set at url_edit.
+
         If the head of move_url equals 'http://' or 'https://',
         query to google search form.
         If the head of move_url doed not include above protocol,
@@ -163,6 +173,7 @@ class PersephonepWindow(QWidget):
         self.updateCurrentUrl()
 
     def check_url_protocol(self, move_url):
+        """Check url of protocol."""
         if (
             move_url[0:7] == "http://"
             or move_url[0:8] == "https://"
@@ -174,7 +185,7 @@ class PersephonepWindow(QWidget):
             return False
 
     def check_url_protocol_ipv4(self, move_url):
-        """return True if move_url is IPv4 using Regular expression"""
+        """Return true if move_url is IPv4 using Regular expression."""
         pattern = (
             "(([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.)"
             "{3}([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])"
@@ -182,17 +193,18 @@ class PersephonepWindow(QWidget):
         return re.match(pattern, move_url)
 
     def updateCurrentUrl(self):
-        """rewriting url_edit when you move different web page."""
+        """Rewrite url_edit when you move different web page."""
         # current_url = self.window.url().toString()
         self.url_edit.clear()
         self.url_edit.insert(self.window.url().toString())
 
     def loadHomePage(self):
-        """move to the home page"""
+        """Move to the home page."""
         initurl = "https://www.google.co.jp"
         self.window.load(QUrl(initurl))
 
     def saveFile(self):
+        """Save downloaded file(developping)."""
         print("download")
 
     def _downloadRequested(self, item):  # QWebEngineDownloadItem
