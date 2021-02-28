@@ -1,23 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys
 import os
 import re
-from PyQt5.QtWidgets import (
-    QWidget,
-    QLineEdit,
-    QGridLayout,
-    QLabel,
-    QDialog,
-    QHBoxLayout,
-    QApplication,
-    QPushButton,
-    QDesktopWidget,
-)
-from PyQt5.QtGui import QIcon
+import sys
+
 from PyQt5.QtCore import QUrl
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWebEngineWidgets import QWebEngineView
+from PyQt5.QtWidgets import (
+    QApplication,
+    QDesktopWidget,
+    QDialog,
+    QGridLayout,
+    QHBoxLayout,
+    QLabel,
+    QLineEdit,
+    QPushButton,
+    QWidget,
+)
 
 
 __program__ = "PERSEPHONEP"

@@ -2,22 +2,21 @@
 # coding: utf-8
 #
 
+from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import (
-    QMainWindow,
-    QWidget,
+    # QApplication,
+    QDesktopWidget,
+    # QLabel,
+    # QMainWindow,
     QPushButton,
     QTabWidget,
-    QApplication,
     QVBoxLayout,
-    QLabel,
-    QDesktopWidget,
+    QWidget,
 )
-import func_persephonep
-from PyQt5.QtCore import pyqtSlot
 
 """ original files
 """
-
+import func_persephonep
 
 class PersephonepTabWidget(QWidget):
     """
