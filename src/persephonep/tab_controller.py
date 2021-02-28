@@ -24,7 +24,7 @@ class PersephonepTabWidget(QWidget):
     This is a Tab Handle Class for this browser.
     This class is called by PersephonepMainWindow,
     and it has some PersephonepWindos.
-    
+
     Attributes:
     ----------
     TODO
@@ -70,8 +70,7 @@ class PersephonepTabWidget(QWidget):
         self.setLayout(self.layout)
 
     def _addTab(self, index):
-        """ add Tab
-        """
+        """add Tab"""
         self.tab.append(func_persephonep.PersephonepWindow(parent=self))
         #  do not match tab index & tab num
         self.tabs.addTab(self.tab[-1], "")
@@ -79,22 +78,19 @@ class PersephonepTabWidget(QWidget):
         self.tab[-1].window.titleChanged.connect(self.updateTabName)
 
     def closeTab(self, index):
-        """ close Tab.
-        """
+        """close Tab"""
         # widget = self.tabs.widget(index)
         self.tab.pop(index)
         self.tabs.removeTab(index)
 
     def updateTabName(self):
-        """ re-set tab name
-        """
+        """re-set tab name"""
         self.tabs.setTabText(
             self.tabs.currentIndex(), self.tab[self.tabs.currentIndex()].window.title()
         )
 
     def center(self):
-        """ centering widget
-        """
+        """centering widget"""
         qr = self.frameGeometry()
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)

@@ -133,15 +133,14 @@ class PersephonepWindow(QWidget):
             self.show()
 
     def center(self):
-        """ centering widget
-        """
+        """centering widget"""
         qr = self.frameGeometry()
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
     def loadPage(self):
-        """ move web page which is set at url_edit
+        """move web page which is set at url_edit
         If the head of move_url equals 'http://' or 'https://',
         query to google search form.
         If the head of move_url doed not include above protocol,
@@ -174,8 +173,7 @@ class PersephonepWindow(QWidget):
             return False
 
     def check_url_protocol_ipv4(self, move_url):
-        """ return True if move_url is IPv4 using Regular expression
-        """
+        """return True if move_url is IPv4 using Regular expression"""
         pattern = (
             "(([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.)"
             "{3}([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])"
@@ -183,15 +181,13 @@ class PersephonepWindow(QWidget):
         return re.match(pattern, move_url)
 
     def updateCurrentUrl(self):
-        """ rewriting url_edit when you move different web page.
-        """
+        """rewriting url_edit when you move different web page."""
         # current_url = self.window.url().toString()
         self.url_edit.clear()
         self.url_edit.insert(self.window.url().toString())
 
     def loadHomePage(self):
-        """ move to the home page
-        """
+        """move to the home page"""
         initurl = "https://www.google.co.jp"
         self.window.load(QUrl(initurl))
 
