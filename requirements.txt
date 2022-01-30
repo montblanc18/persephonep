@@ -2,8 +2,8 @@ PyQt6
 pytest
 PyQt6-WebEngine
 pytest-qt
-# pytest-cov
-# tox>=3.16.1
+pytest-cov
+tox
 black
 flake8
 flake8-blind-except
