@@ -1,10 +1,9 @@
-PyQt5>=5.15
-PyQt5-sip>=12.8.0
-PyQtWebEngine>=5.12
-pytest>=5.4.3
-pytest-qt>=3.3.0
+PyQt6
+pytest
+PyQt6-WebEngine
+pytest-qt
 pytest-cov
-tox>=3.16.1
+tox
 black
 flake8
 flake8-blind-except

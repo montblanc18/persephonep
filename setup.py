@@ -9,7 +9,7 @@ __version__ = "2.0.1"
 setup(
     name="persephonep",
     version=__version__,
-    description="Web Browser developed with Python3 and PyQt5",
+    description="Web Browser developed with Python3 and PyQt6",
     long_description="""
     Some people are limited with their Web Browser.
     The faster we browse web pages,
@@ -22,6 +22,6 @@ setup(
     package_dir={"": "src", "resource": "resource"},
     packages=find_packages(where="src", exclude=("tests", "docs")),
     # package_data = {'input':['input'],},
-    # install_requires = ['PyQt5', 'PyQtWebEngine', 'pytest-qt'],
+    # install_requires = ['6', 'PyQtWebEngine', 'pytest-qt'],
     # test_suite = 'tests'
 )

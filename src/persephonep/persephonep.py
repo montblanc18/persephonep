@@ -7,8 +7,8 @@ import argparse
 import os
 import sys
 
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import (
+from PyQt6.QtGui import QIcon
+from PyQt6.QtWidgets import (
     QApplication,
     # QDesktopWidget,
     # QLabel,
@@ -93,7 +93,7 @@ class PersephonepMainWindow(QMainWindow):
         self.setCentralWidget(self.table_widget)
         # TODO: Add Download Controller
         # app_info_text = (
-        #    "%s is a Web Browser based on Python 3 and PyQt5,"
+        #    "%s is a Web Browser based on Python 3 and 6,"
         #    " developed by @montblanc18." % func_persephonep.program_name()
         # )
 

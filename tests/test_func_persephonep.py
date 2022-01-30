@@ -7,7 +7,7 @@ from persephonep import func_persephonep
 
 def test_check_url_protocol():
     return 0
-    # mainPyQt5()
+    # mainPyQt6()
     # app = QApplication(sys.argv)
 
     # setWindowIcon is a method for QApplication, not for QWidget

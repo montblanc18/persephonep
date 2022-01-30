@@ -2,7 +2,7 @@
 # coding: utf-8
 #
 
-from PyQt5.QtWidgets import (
+from PyQt6.QtWidgets import (
     QMainWindow,
     QWidget,
     QPushButton,
@@ -10,11 +10,10 @@ from PyQt5.QtWidgets import (
     QApplication,
     QVBoxLayout,
     QLabel,
-    QDesktopWidget,
     QStatusBar,
 )
-from PyQt5.QtGui import QIcon
-import PyQt5.QtCore
+from PyQt6.QtGui import QIcon
+import PyQt6.QtCore
 import pytest
 import os
 import sys
@@ -36,5 +35,5 @@ def test_add_button(qtbot):
     qt_api.qWarning("test")
 
     qtbot.addWidget(ui)
-    qtbot.mouseClick(ui.table_widget.add_button, PyQt5.QtCore.Qt.LeftButton)
+    qtbot.mouseClick(ui.table_widget.add_button, PyQt6.QtCore.Qt.MouseButton.LeftButton)
     assert ui.table_widget.add_button.text() == "+"

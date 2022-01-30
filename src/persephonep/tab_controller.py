@@ -3,10 +3,11 @@
 #
 """Control tab of browser."""
 
-from PyQt5.QtCore import pyqtSlot
-from PyQt5.QtWidgets import (
+from PyQt6.QtCore import pyqtSlot
+from PyQt6.QtGui import QGuiApplication
+from PyQt6.QtWidgets import (
     # QApplication,
-    QDesktopWidget,
+    # QDesktopWidget,
     # QLabel,
     # QMainWindow,
     QPushButton,
@@ -51,7 +52,7 @@ class PersephonepTabWidget(QWidget):
         self.add_button.setStyleSheet("background-color:gray")
         # add tab to last of index
         self.add_button.clicked.connect(lambda: self._addTab(len(self.tab)))
-        # app_info_text = '%s is a Web Browser based on Python 3 and PyQt5,' \
+        # app_info_text = '%s is a Web Browser based on Python 3 and PyQt6,' \
         #                 ' developed by @montblanc18.' % func_persephonep.program_name()
         # self.app_info = QLabel(app_info_text)
 
@@ -62,7 +63,7 @@ class PersephonepTabWidget(QWidget):
         self.tabs.setUsesScrollButtons(True)
         # Create first tab
         # self.tab[0].layout = QVBoxLayout(self)
-        # self.pushButton1 = QPushButton('PyQt5 button')
+        # self.pushButton1 = QPushButton('PyQt6 button')
         # self.tab[0].layout.addWidget(self.pushButton1)
         # self.tab[0].setLayout(self.tab[0].layout)
 
@@ -95,7 +96,7 @@ class PersephonepTabWidget(QWidget):
     def center(self):
         """Center widget."""
         qr = self.frameGeometry()
-        cp = QDesktopWidget().availableGeometry().center()
+        cp = QGuiApplication.primaryScreen().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 

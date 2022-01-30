@@ -3,15 +3,16 @@
 
 [![version](http://img.shields.io/pypi/v/persephonep.svg)](https://pypi.python.org/pypi/persephonep/)
 
-
-
-PersephoneP is a web browser written by Python3 and [PyQt5](https://www.riverbankcomputing.com/static/Docs/PyQt5/).
+PersephoneP is a web browser written by Python3 and [PyQt6](https://www.riverbankcomputing.com/static/Docs/PyQt6/).
 This browser is based on Chromium,
- which is an open source web browser engine included in PyQt5.
+ which is an open source web browser engine included in PyQt6.
 The data from web pages gotten by Chromium is drawn on PyQt Widgets.
 PyQt is one of the most popular Python bindings for the Qt cross-platform C++ framework.
 Utilizing the characteristics of Qt as cross-platform framework,
  PersephoneP is able to run on multi-platform if python is installed.
+
+Originally PersephoneP is developed on PyQt5.
+PyQt6 was released in 2021, and PersephoneP change its framework from PyQt5 to PyQt6 in 2022.
 
 ## Requirement
 
@@ -77,8 +78,8 @@ Some people say that making browser is reinventing the wheel,
 1. This company prohibited my using browsers except IE.
 1. I decided to develop my browser.
 1. That company forced me to submit applications before installing software or libraries which I want.
-1. PyQt5 based on only sip module and sip run with PurePython.
-1. I decided to use PyQt5.
+1. PyQt6 based on only sip module and sip run with PurePython.
+1. I decided to use PyQt6.
 
 ## Notice
 
