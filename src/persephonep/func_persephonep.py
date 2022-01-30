@@ -6,12 +6,11 @@ import os
 import re
 import sys
 
-from PyQt5.QtCore import QUrl
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtWidgets import (
+from PyQt6.QtCore import QUrl
+from PyQt6.QtGui import QIcon, QGuiApplication
+from PyQt6.QtWebEngineWidgets import QWebEngineView
+from PyQt6.QtWidgets import (
     QApplication,
-    QDesktopWidget,
     QDialog,
     QGridLayout,
     QHBoxLayout,
@@ -144,7 +143,7 @@ class PersephonepWindow(QWidget):
     def center(self):
         """Center widget."""
         qr = self.frameGeometry()
-        cp = QDesktopWidget().availableGeometry().center()
+        cp = QGuiApplication.primaryScreen().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
@@ -216,7 +215,7 @@ class PersephonepWindow(QWidget):
 
 
 if __name__ == "__main__":
-    # mainPyQt5()
+    # main6()
     app = QApplication(sys.argv)
 
     # setWindowIcon is a method for QApplication, not for QWidget
