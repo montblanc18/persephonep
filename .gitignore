@@ -6,8 +6,7 @@ __pycache__/
 *.egg-info/
 .idea/workspace.xml
 .idea/tasks.xml
-venv
-venv/*
+.venv
 env/
 env*
 .tox
