@@ -3,6 +3,7 @@ PyQt5-sip>=12.8.0
 PyQtWebEngine>=5.12
 pytest>=5.4.3
 pytest-qt>=3.3.0
+pytest-cov
 tox>=3.16.1
 black
 flake8

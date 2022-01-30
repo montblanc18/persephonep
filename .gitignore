@@ -11,3 +11,6 @@ venv/*
 env/
 env*
 .tox
+
+.coverage
+.python-version
