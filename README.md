@@ -43,8 +43,8 @@ Please type below commands if you want to execute those tests.
 ```text
 $ git clone https://github.com/montblanc18/persephonep.git
 $ cd persephonep
-$ python -m venv venv
-$ source venv/bin/activate
+$ python -m venv .venv
+$ source .venv/bin/activate
 $ pip install -U pip
 $ pip install -e . -r requirements.txt
 $ export QT_DEBUG_PLUGINS=1
