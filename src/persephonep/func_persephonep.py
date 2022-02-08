@@ -7,7 +7,7 @@ import re
 import sys
 
 from PyQt6.QtCore import QUrl
-from PyQt6.QtGui import QIcon, QGuiApplication
+from PyQt6.QtGui import QGuiApplication, QIcon
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from PyQt6.QtWidgets import (
     QApplication,
